@@ -10,7 +10,8 @@ services:
           ZOO_MY_ID: 1
           ZOO_SERVERS: server.1=zoo1:2888:3888 server.2=zoo2:2888:3888 server.3=zoo3:2888:3888
       networks:
-        - bridge
+        - "net1"
+
 
   zoo2:
       image: zookeeper
@@ -22,7 +23,7 @@ services:
           ZOO_MY_ID: 2
           ZOO_SERVERS: server.1=zoo1:2888:3888 server.2=zoo2:2888:3888 server.3=zoo3:2888:3888
       networks:
-        - bridge
+        - "net1"
 
   zoo3:
       image: zookeeper
@@ -34,4 +35,8 @@ services:
           ZOO_MY_ID: 3
           ZOO_SERVERS: server.1=zoo1:2888:3888 server.2=zoo2:2888:3888 server.3=zoo3:2888:3888
       networks:
-        - bridge
+        - "net1"
+
+networks:
+  net1:
+    driver: bridge
