@@ -37,6 +37,7 @@ services:
       networks:
         - "mynet"
 
+#指定network是桥连的方式，并制定子网ip
 networks:
   mynet:
     driver: bridge
