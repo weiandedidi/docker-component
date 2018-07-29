@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   zoo1:
       image: zookeeper
@@ -40,3 +40,9 @@ services:
 networks:
   mynet:
     driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.5.1/24
+
+
