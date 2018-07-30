@@ -16,6 +16,8 @@ services:
     environment:
       KAFKA_ADVERTISED_HOST_NAME: 192.168.150.130   # 修改:宿主机IP
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181       # 卡夫卡运行是基于zookeeper的
+    networks:
+      - "mynet"
 
   kafka-manager:
     image: sheepkiller/kafka-manager                # 镜像：开源的web管理kafka集群的界面
@@ -23,6 +25,8 @@ services:
         ZK_HOSTS: 192.168.150.130                   # 修改:宿主机IP
     ports:
       - "9000:9000"                                 # 暴露端口
+    networks:
+      - "mynet"
 
 networks:
     mynet:
@@ -30,4 +34,4 @@ networks:
       ipam:
         driver: default
         config:
-          - subnet: 192.168.7.1/24
+          - subnet: 192.168.150.130
