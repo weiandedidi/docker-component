@@ -1,0 +1,15 @@
+version: '3'
+services:
+  m1:
+    build: ./master
+    container_name:  m1
+    volumes:
+      - /root/mysql/m1/conf: /var/lib/mysql
+      - ./master/conf: /etc/mysql/conf.d
+    ports:
+      - "3307:3306"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: maqidi4915338
+
+
